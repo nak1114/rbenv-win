@@ -1,0 +1,11 @@
+@echo off
+setlocal
+IF EXIST %~dp0..\exec.bat (
+    del /F /Q %~dp0..\exec.bat >nul
+)
+call cscript //nologo %~dp0..\libexec\rbenv.vbs %*
+IF EXIST %~dp0..\exec.bat (
+    %~dp0..\exec.bat
+)
+
+rem mkdir %homedrive%%homepath%\.rbenv

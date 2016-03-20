@@ -1,0 +1,17 @@
+/*
+!/.gitignore
+!/LICENSE
+!/README.md
+
+!/bin/
+/bin/*
+!/bin/rbenv.bat
+
+!/libexec/
+/libexec/*
+!/libexec/*.bat
+!/libexec/*.vbs
+
+!/tools/
+
+!/test/
