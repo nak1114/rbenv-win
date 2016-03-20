@@ -17,8 +17,8 @@ strDirVers   = strRbenvHome & "\versions"
 strDirLibs   = strRbenvHome & "\libexec"
 
 Function IsVersion(version)
-	Dim re
-	Set re = new regexp
+    Dim re
+    Set re = new regexp
     re.Pattern = "^[a-zA-Z_0-9-.]+$"
     IsVersion = re.Test(version)
 End Function
@@ -44,15 +44,15 @@ Function GetCurrentVersionLocal(path)
     Dim fname
     Dim objFile
     Do While path <> ""
-	    fname = path & "\.rbenv_version"
-	    If objfs.FileExists( fname ) Then
-	        Set objFile = objFSO.OpenTextFile(fname)
-	        If objFile.AtEndOfStream <> True Then
-	           GetCurrentVersionLocal = Array(objFile.ReadLine,fname)
-	        End If
-	        objFile.Close
-	        Exit Function
-	    End If
+        fname = path & "\.rbenv_version"
+        If objfs.FileExists( fname ) Then
+            Set objFile = objFSO.OpenTextFile(fname)
+            If objFile.AtEndOfStream <> True Then
+               GetCurrentVersionLocal = Array(objFile.ReadLine,fname)
+            End If
+            objFile.Close
+            Exit Function
+        End If
         path = objfs.getParentFolderName(path)
     Loop
 End Function
@@ -92,19 +92,19 @@ Function GetBinDir(ver)
 End Function
 
 Function GetCommandList()
-	Dim cmdList
-	Set cmdList = CreateObject("scripting.dictionary")'"System.Collections.SortedList"
+    Dim cmdList
+    Set cmdList = CreateObject("scripting.dictionary")'"System.Collections.SortedList"
 
-	Dim re
-	Set re = new regexp
+    Dim re
+    Set re = new regexp
     re.Pattern = "\\rbenv-([a-zA-Z_0-9-]+)\.(bat|vbs)$"
 
-	Dim file
-	Dim mts
+    Dim file
+    Dim mts
     For Each file In objfs.GetFolder(strDirLibs).Files
         Set mts=re.Execute(file)
         If mts.Count > 0 Then
-			 cmdList.Add mts(0).submatches(0), file
+             cmdList.Add mts(0).submatches(0), file
         End If
     Next
 
@@ -113,47 +113,47 @@ End Function
 
 Sub ExecCommand(str)
     Dim ofile
-	Set ofile = objfs.CreateTextFile(strRbenvHome & "\exec.bat" , True )
-	ofile.WriteLine(str)
-	ofile.Close()
+    Set ofile = objfs.CreateTextFile(strRbenvHome & "\exec.bat" , True )
+    ofile.WriteLine(str)
+    ofile.Close()
 End Sub
 
 Sub ShowHelp()
-	 Wscript.echo "rbenv 0.0.0-01"
-	 Wscript.echo "Usage: rbenv <command> [<args>]"
-	 Wscript.echo ""
-	 Wscript.echo "Some useful rbenv commands are:"
-	 Wscript.echo "   commands    List all available rbenv commands"
-	 Wscript.echo "   exec        Runs an executable by first preparing PATH so that the selected Ruby"
-	 Wscript.echo "   rehash      Rehash rbenv shims (run this after installing executables)"
-	 Wscript.echo "   global      Set or show the global Ruby version"
-	 Wscript.echo "   local       Set or show the local application-specific Ruby version"
-	 Wscript.echo "   shell       Set or show the shell-specific Ruby version"
-	 Wscript.echo "   version     Show the current Ruby version and its origin"
-	 Wscript.echo "   versions    List all Ruby versions available to rbenv"
-	 Wscript.echo ""
-	 Wscript.echo "See `rbenv help <command>' for information on a specific command."
-	 Wscript.echo "For full documentation, see: https://github.com/rbenv/rbenv#readme"
-	 Exit Sub
-	 Wscript.echo "   install     Install a Ruby version using ruby-build"
-	 Wscript.echo "   uninstall   Uninstall a specific Ruby version"
+     Wscript.echo "rbenv 0.0.0-01"
+     Wscript.echo "Usage: rbenv <command> [<args>]"
+     Wscript.echo ""
+     Wscript.echo "Some useful rbenv commands are:"
+     Wscript.echo "   commands    List all available rbenv commands"
+     Wscript.echo "   exec        Runs an executable by first preparing PATH so that the selected Ruby"
+     Wscript.echo "   rehash      Rehash rbenv shims (run this after installing executables)"
+     Wscript.echo "   global      Set or show the global Ruby version"
+     Wscript.echo "   local       Set or show the local application-specific Ruby version"
+     Wscript.echo "   shell       Set or show the shell-specific Ruby version"
+     Wscript.echo "   version     Show the current Ruby version and its origin"
+     Wscript.echo "   versions    List all Ruby versions available to rbenv"
+     Wscript.echo ""
+     Wscript.echo "See `rbenv help <command>' for information on a specific command."
+     Wscript.echo "For full documentation, see: https://github.com/rbenv/rbenv#readme"
+     Exit Sub
+     Wscript.echo "   install     Install a Ruby version using ruby-build"
+     Wscript.echo "   uninstall   Uninstall a specific Ruby version"
 
 
-	 Wscript.echo "   which       Display the full path to an executable"
-	 Wscript.echo "   whence      List all Ruby versions that contain the given executable"
+     Wscript.echo "   which       Display the full path to an executable"
+     Wscript.echo "   whence      List all Ruby versions that contain the given executable"
 End Sub
 
 Sub CommandHelp(arg)
     If arg.Count > 1 Then
-		Dim list
+        Dim list
         Set list=GetCommandList
         If list.ContainsKey(arg(1)) Then
             ExecCommand(list(arg(1)) & " --help")
         Else
-        	 Wscript.echo "unknown rbenv command '"&arg(1)&"'"
+             Wscript.echo "unknown rbenv command '"&arg(1)&"'"
         End If
     Else
-    	ShowHelp
+        ShowHelp
     End If
 End Sub
 
@@ -181,11 +181,11 @@ End Sub
 Sub CommandExecute(arg)
     Dim str
     str="set PATH=" & GetBinDir(GetCurrentVersion()(0)) & ";%PATH%" & vbCrLf
-	Dim idx
-	For idx = 1 To arg.Count - 1 
-	  str=str & " """& arg(idx) &""""
-	Next
-	ExecCommand(str)
+    Dim idx
+    For idx = 1 To arg.Count - 1 
+      str=str & " """& arg(idx) &""""
+    Next
+    ExecCommand(str)
 End Sub
 
 Sub CommandGlobal(arg)
@@ -199,10 +199,10 @@ Sub CommandGlobal(arg)
         End If
     Else
         GetBinDir(arg(1))
-	    Dim ofile
-		Set ofile = objfs.CreateTextFile( strRbenvHome & "\version" , True )
-		ofile.WriteLine(arg(1))
-		ofile.Close()
+        Dim ofile
+        Set ofile = objfs.CreateTextFile( strRbenvHome & "\version" , True )
+        ofile.WriteLine(arg(1))
+        ofile.Close()
     End If
 End Sub
 
@@ -223,10 +223,10 @@ Sub CommandLocal(arg)
         Else
             GetBinDir(ver)
         End If
-	    Dim ofile
-		Set ofile = objfs.CreateTextFile( strCurrent & "\.rbenv_version" , True )
-		ofile.WriteLine(ver)
-		ofile.Close()
+        Dim ofile
+        Set ofile = objfs.CreateTextFile( strCurrent & "\.rbenv_version" , True )
+        ofile.WriteLine(ver)
+        ofile.Close()
     End If
 End Sub
 
@@ -252,7 +252,7 @@ End Sub
 
 Sub CommandVersion(arg)
     If Not objfs.FolderExists( strDirVers ) Then objfs.CreateFolder(strDirVers)
- 
+
     Dim curVer
     curVer=GetCurrentVersion
     Wscript.echo curVer(0) & " (set by " &curVer(1)&")"
@@ -265,7 +265,7 @@ Sub CommandVersions(arg)
     If arg(1) = "--bare" Then isBare=True
 
     If Not objfs.FolderExists( strDirVers ) Then objfs.CreateFolder(strDirVers)
- 
+
     Dim curVer
     curVer=GetCurrentVersionNoError
     If IsNull(curVer) Then
@@ -288,23 +288,23 @@ End Sub
 
 Sub PlugIn(arg)
     Dim fname
-	Dim idx
-	Dim str
+    Dim idx
+    Dim str
     fname = strDirLibs & "\rbenv-" & arg(0)
     If objfs.FileExists( fname & ".bat" ) Then
-		str="""" & fname & ".bat"""
+        str="""" & fname & ".bat"""
     ElseIf objfs.FileExists( fname & ".vbs" ) Then
-		str="cscript //nologo """ & fname & ".vbs"""
+        str="cscript //nologo """ & fname & ".vbs"""
     Else
        Wscript.echo "rbenv: no such command `"&arg(0)&"'"
        Wscript.Quit
     End If
 
-	For idx = 1 To arg.Count - 1 
-	  str=str & " """& arg(idx) &""""
-	Next
+    For idx = 1 To arg.Count - 1 
+      str=str & " """& arg(idx) &""""
+    Next
 
-	ExecCommand(str)
+    ExecCommand(str)
 End Sub
 
 Sub CommandCommands(arg)
@@ -315,25 +315,25 @@ Sub CommandCommands(arg)
 End Sub
 
 Sub Dummy()
-	 Wscript.echo "command not implement"
+     Wscript.echo "command not implement"
 End Sub
 
 
 Sub main(arg)
     If arg.Count = 0 Then ShowHelp
 
-	Select Case arg(0)
-	   Case "exec"        CommandExecute(arg)
-	   Case "rehash"      CommandRehash(arg)
-	   Case "global"      CommandGlobal(arg)
-	   Case "local"       CommandLocal(arg)
-	   Case "shell"       CommandShell(arg)
-	   Case "version"     CommandVersion(arg)
-	   Case "versions"    CommandVersions(arg)
-	   Case "commands"    CommandCommands(arg)
-	   Case "help"        CommandHelp(arg)
-	   Case Else          PlugIn(arg)
-	End Select
+    Select Case arg(0)
+       Case "exec"        CommandExecute(arg)
+       Case "rehash"      CommandRehash(arg)
+       Case "global"      CommandGlobal(arg)
+       Case "local"       CommandLocal(arg)
+       Case "shell"       CommandShell(arg)
+       Case "version"     CommandVersion(arg)
+       Case "versions"    CommandVersions(arg)
+       Case "commands"    CommandCommands(arg)
+       Case "help"        CommandHelp(arg)
+       Case Else          PlugIn(arg)
+    End Select
 End Sub
 
 
