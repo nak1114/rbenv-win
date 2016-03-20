@@ -231,6 +231,7 @@ End Sub
 
 Sub extract(cur)
     If Not objfs.FolderExists( strDirCache ) Then objfs.CreateFolder(strDirCache)
+    If Not objfs.FolderExists( strDirVers  ) Then objfs.CreateFolder(strDirVers )
 
     If objfs.FolderExists(cur(1)) Then Exit Sub
 
