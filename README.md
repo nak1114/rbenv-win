@@ -1,6 +1,6 @@
 # rbenv for Windows
 
-The rbenv is a great tool. I am porting it to Windows. 
+The rbenv is a great tool. I ported it to Windows. 
 Some commands doesn't implemented, but wouldn't be a problem in basic use.
 
 ## Usage
@@ -15,32 +15,36 @@ How to use the detailed command, please refer to the [original rbenv](https://gi
 
 ## Installation
 
+Installer is [here](https://gist.github.com/7ea63204203883c5884d.git).  
 Install `rbenv for windows` to your `USERPROFILE` directory.
-Batch file is [here](https://gist.github.com/7ea63204203883c5884d.git).
 
 1. Clone git repositry
-````
-> git clone https://github.com/nak1114/rbenv-win.git %USERPROFILE%\.rbenv-win
-````
+
+    ````
+    > git clone https://github.com/nak1114/rbenv-win.git %USERPROFILE%\.rbenv-win
+    ````
 
 2. Config path  
-Add the `bin` & `shims` directory to your `PATH` environment variable for access to the rbenv command
-````
-> for /f "skip=2 delims=" %a in ('reg query HKCU\Environment /v Path') do set orgpath=%a
-> setx Path "%USERPROFILE%\.rbenv-win\bin;%USERPROFILE%\.rbenv-win\shims;%orgpath:~22%"
-````
+    Add the `bin` & `shims` directory to your `PATH` environment variable for access to the rbenv command
 
-Restart your shell
-````
-> exit
-````
+    ````
+    > for /f "skip=2 delims=" %a in ('reg query HKCU\Environment /v Path') do set orgpath=%a
+    > setx Path "%USERPROFILE%\.rbenv-win\bin;%USERPROFILE%\.rbenv-win\shims;%orgpath:~22%"
+    ````
 
-Run the following command after `rbenv` installation , to enable the `ruby`.
-````
-> rbenv install 2.2.4
-> rbenv global 2.2.4
-> rbenv rehash
-```
+3. Restart your shell
+
+    ````
+    > exit
+    ````
+
+4. Run the following command after `rbenv` installation , to enable the `ruby`.
+
+    ````
+    > rbenv install 2.2.4
+    > rbenv global 2.2.4
+    > rbenv rehash
+    ````
 
 ## License
 
