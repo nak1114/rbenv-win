@@ -22,14 +22,14 @@ tool7z = """" & strRbenvHome & "\tools\7z\7zdec.exe"" x "
 
 
 Sub ShowHelp()
-	 Wscript.echo "Usage: rbenv install [-f|-s] <version>"
-	 Wscript.echo "       rbenv install [-f|-s] <definition-file>"
-	 Wscript.echo "       rbenv install -l|--list"
-	 Wscript.echo ""
-	 Wscript.echo "  -l/--list          List all available versions"
-	 Wscript.echo "  -f/--force         Install even if the version appears to be installed already"
-	 Wscript.echo "  -s/--skip-existing Skip if the version appears to be installed already"
-	 Wscript.echo ""
+     Wscript.echo "Usage: rbenv install [-f|-s] <version>"
+     Wscript.echo "       rbenv install [-f|-s] <definition-file>"
+     Wscript.echo "       rbenv install -l|--list"
+     Wscript.echo ""
+     Wscript.echo "  -l/--list          List all available versions"
+     Wscript.echo "  -f/--force         Install even if the version appears to be installed already"
+     Wscript.echo "  -s/--skip-existing Skip if the version appears to be installed already"
+     Wscript.echo ""
      Wscript.Quit
 End Sub
 
@@ -220,13 +220,13 @@ Function DownloadFile(strUrl,strFile)
 End Function
 
 Sub clear(cur)
-	If objfs.FolderExists(cur(1)) Then objfs.DeleteFolder cur(1),True 
-	If objfs.FileExists(  cur(2)) Then objfs.DeleteFile   cur(2),True 
+    If objfs.FolderExists(cur(1)) Then objfs.DeleteFolder cur(1),True 
+    If objfs.FileExists(  cur(2)) Then objfs.DeleteFile   cur(2),True 
 End Sub
 
 Sub download(cur)
-	Wscript.echo "download " & cur(0) & " ..."
-	DownloadFile cur(3) , cur(2)
+    Wscript.echo "download " & cur(0) & " ..."
+    DownloadFile cur(3) , cur(2)
 End Sub
 
 Sub extract(cur)
@@ -236,67 +236,67 @@ Sub extract(cur)
     If objfs.FolderExists(cur(1)) Then Exit Sub
 
     If Not objfs.FileExists(cur(2)) Then download(cur)
-	
-	 Wscript.echo "install " & cur(0) & " ..."
+    
+     Wscript.echo "install " & cur(0) & " ..."
 
-	objws.CurrentDirectory = strDirCache
-	objws.Run tool7z & " """ & cur(2) & """" , 0 , true
+    objws.CurrentDirectory = strDirCache
+    objws.Run tool7z & " """ & cur(2) & """" , 0 , true
     objfs.MoveFolder strDirCache&"\"&objfs.GetBaseName(cur(2)) , cur(1)
 
-	 Wscript.echo "comlete! " & cur(0)
+     Wscript.echo "comlete! " & cur(0)
 End Sub
 
 Sub main(arg)
-	If arg.Count = 0 Then ShowHelp
+    If arg.Count = 0 Then ShowHelp
 
-	Dim idx
-	Dim optForce
-	Dim optSkip
-	Dim optList
-	Dim version
+    Dim idx
+    Dim optForce
+    Dim optSkip
+    Dim optList
+    Dim version
 
-	optForce=False
-	optSkip=False
-	optList=False
-	version=""
+    optForce=False
+    optSkip=False
+    optList=False
+    version=""
 
-	For idx = 0 To arg.Count - 1 
-		Select Case arg(idx)
-		   Case "--help"          ShowHelp
-		   Case "-l"              optList=True
-		   Case "--list"          optList=True
-		   Case "-f"              optForce=True
-		   Case "--force"         optForce=True
-		   Case "-s"              optSkip=True
-		   Case "--skip-existing" optSkip=True
-		   Case Else
-		       version = arg(idx)
-		       Exit For
-		End Select
-	Next
-	
-	Dim list
-	Dim cur
-	If optList Then
-	    For Each list In listEnv_i386
-			Wscript.echo list(0)
-	    Next
-	    Exit Sub
-	ElseIf version <> "" Then
-	    For Each list In listEnv_i386
-			If list(0) = version Then 
-				cur=Array(list(0),strDirVers&"\"&list(0),strDirCache&"\"&list(2),list(1)&list(2))
-				If optForce Then  clear(cur)
-				extract(cur)
-				Exit Sub
-			End If
-	    Next
-		Wscript.echo "rbenv-install: definition not found: " & version
-		Wscript.echo ""
-		Wscript.echo "See all available versions with `rbenv install --list'."
-	Else
-		ShowHelp
-	End If
+    For idx = 0 To arg.Count - 1 
+        Select Case arg(idx)
+           Case "--help"          ShowHelp
+           Case "-l"              optList=True
+           Case "--list"          optList=True
+           Case "-f"              optForce=True
+           Case "--force"         optForce=True
+           Case "-s"              optSkip=True
+           Case "--skip-existing" optSkip=True
+           Case Else
+               version = arg(idx)
+               Exit For
+        End Select
+    Next
+    
+    Dim list
+    Dim cur
+    If optList Then
+        For Each list In listEnv_i386
+            Wscript.echo list(0)
+        Next
+        Exit Sub
+    ElseIf version <> "" Then
+        For Each list In listEnv_i386
+            If list(0) = version Then 
+                cur=Array(list(0),strDirVers&"\"&list(0),strDirCache&"\"&list(2),list(1)&list(2))
+                If optForce Then  clear(cur)
+                extract(cur)
+                Exit Sub
+            End If
+        Next
+        Wscript.echo "rbenv-install: definition not found: " & version
+        Wscript.echo ""
+        Wscript.echo "See all available versions with `rbenv install --list'."
+    Else
+        ShowHelp
+    End If
 End Sub
 
 main(WScript.Arguments)
