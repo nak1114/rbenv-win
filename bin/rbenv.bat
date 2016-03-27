@@ -7,5 +7,3 @@ call cscript //nologo %~dp0..\libexec\rbenv.vbs %*
 IF EXIST %~dp0..\exec.bat (
     %~dp0..\exec.bat
 )
-
-rem mkdir %homedrive%%homepath%\.rbenv

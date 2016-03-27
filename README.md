@@ -1,7 +1,7 @@
 # rbenv for Windows
 
-The rbenv is a great tool. I am porting this tool to Windows. 
-Some of the command is not implemented, but would not be a problem in basic use.
+The rbenv is a great tool. I am porting it to Windows. 
+Some commands doesn't implemented, but wouldn't be a problem in basic use.
 
 ## Usage
 
@@ -18,13 +18,13 @@ How to use the detailed command, please refer to the [original rbenv](https://gi
 Install `rbenv for windows` to your `USERPROFILE` directory.
 Batch file is [here](https://gist.github.com/7ea63204203883c5884d.git).
 
-Clone git repositry
+1. Clone git repositry
 ````
 > git clone https://github.com/nak1114/rbenv-win.git %USERPROFILE%\.rbenv-win
 ````
 
-Config path
-Add the `bin` & `shims` directory to your `PATH` enviroment variable for access to the rbenv command
+2. Config path  
+Add the `bin` & `shims` directory to your `PATH` environment variable for access to the rbenv command
 ````
 > for /f "skip=2 delims=" %a in ('reg query HKCU\Environment /v Path') do set orgpath=%a
 > setx Path "%USERPROFILE%\.rbenv-win\bin;%USERPROFILE%\.rbenv-win\shims;%orgpath:~22%"

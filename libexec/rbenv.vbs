@@ -119,24 +119,23 @@ Sub ExecCommand(str)
 End Sub
 
 Sub ShowHelp()
-     Wscript.echo "rbenv 0.0.0-01"
      Wscript.echo "Usage: rbenv <command> [<args>]"
      Wscript.echo ""
      Wscript.echo "Some useful rbenv commands are:"
      Wscript.echo "   commands    List all available rbenv commands"
-     Wscript.echo "   exec        Runs an executable by first preparing PATH so that the selected Ruby"
-     Wscript.echo "   rehash      Rehash rbenv shims (run this after installing executables)"
-     Wscript.echo "   global      Set or show the global Ruby version"
      Wscript.echo "   local       Set or show the local application-specific Ruby version"
+     Wscript.echo "   global      Set or show the global Ruby version"
      Wscript.echo "   shell       Set or show the shell-specific Ruby version"
+     Wscript.echo "   install     Install a Ruby version using ruby-build"
+     Wscript.echo "   uninstall   Uninstall a specific Ruby version"
+     Wscript.echo "   rehash      Rehash rbenv shims (run this after installing executables)"
      Wscript.echo "   version     Show the current Ruby version and its origin"
      Wscript.echo "   versions    List all Ruby versions available to rbenv"
+     Wscript.echo "   exec        Runs an executable by first preparing PATH so that the selected Ruby"
      Wscript.echo ""
      Wscript.echo "See `rbenv help <command>' for information on a specific command."
      Wscript.echo "For full documentation, see: https://github.com/rbenv/rbenv#readme"
      Exit Sub
-     Wscript.echo "   install     Install a Ruby version using ruby-build"
-     Wscript.echo "   uninstall   Uninstall a specific Ruby version"
 
 
      Wscript.echo "   which       Display the full path to an executable"
@@ -339,6 +338,3 @@ End Sub
 
 
 main(WScript.Arguments)
-
-
-'set PATH=d:\proj\rbenv\bin;d:\proj\rbenv\shims;%path%
