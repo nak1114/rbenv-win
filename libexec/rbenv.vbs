@@ -261,7 +261,9 @@ Sub CommandVersions(arg)
     Dim isBare
 
     isBare=False
-    If arg(1) = "--bare" Then isBare=True
+    If arg.Count > 2 Then
+        If arg(1) = "--bare" Then isBare=True
+    End If
 
     If Not objfs.FolderExists( strDirVers ) Then objfs.CreateFolder(strDirVers)
 
@@ -319,20 +321,22 @@ End Sub
 
 
 Sub main(arg)
-    If arg.Count = 0 Then ShowHelp
-
-    Select Case arg(0)
-       Case "exec"        CommandExecute(arg)
-       Case "rehash"      CommandRehash(arg)
-       Case "global"      CommandGlobal(arg)
-       Case "local"       CommandLocal(arg)
-       Case "shell"       CommandShell(arg)
-       Case "version"     CommandVersion(arg)
-       Case "versions"    CommandVersions(arg)
-       Case "commands"    CommandCommands(arg)
-       Case "help"        CommandHelp(arg)
-       Case Else          PlugIn(arg)
-    End Select
+    If arg.Count = 0 Then
+        ShowHelp
+    Else
+        Select Case arg(0)
+           Case "exec"        CommandExecute(arg)
+           Case "rehash"      CommandRehash(arg)
+           Case "global"      CommandGlobal(arg)
+           Case "local"       CommandLocal(arg)
+           Case "shell"       CommandShell(arg)
+           Case "version"     CommandVersion(arg)
+           Case "versions"    CommandVersions(arg)
+           Case "commands"    CommandCommands(arg)
+           Case "help"        CommandHelp(arg)
+           Case Else          PlugIn(arg)
+        End Select
+    End If
 End Sub
 
 
