@@ -179,11 +179,16 @@ End Sub
 
 Sub CommandExecute(arg)
     Dim str
-    str="set PATH=" & GetBinDir(GetCurrentVersion()(0)) & ";%PATH%" & vbCrLf
-    Dim idx
-    For idx = 1 To arg.Count - 1 
-      str=str & " """& arg(idx) &""""
-    Next
+    Dim dstr
+    dstr=GetBinDir(GetCurrentVersion()(0))
+    str="set PATH=" & dstr & ";%PATH%" & vbCrLf
+    If arg.Count > 2 Then  
+      str=str & """" & dstr & "\" & arg(1) & """"
+      Dim idx
+      For idx = 2 To arg.Count - 1 
+        str=str & " """& arg(idx) &""""
+      Next
+    End If
     ExecCommand(str)
 End Sub
 
