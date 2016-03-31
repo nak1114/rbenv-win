@@ -225,7 +225,8 @@ Sub CommandLocal(arg)
         ver=arg(1)
         If ver = "--unset" Then
             ver = ""
-            objFSO.DeleteFile strDelFile, True
+            objfs.DeleteFile strCurrent & "\.rbenv_version", True
+            Exit Sub
         Else
             GetBinDir(ver)
         End If
