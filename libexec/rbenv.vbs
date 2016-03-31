@@ -46,7 +46,7 @@ Function GetCurrentVersionLocal(path)
     Do While path <> ""
         fname = path & "\.rbenv_version"
         If objfs.FileExists( fname ) Then
-            Set objFile = objFSO.OpenTextFile(fname)
+            Set objFile = objfs.OpenTextFile(fname)
             If objFile.AtEndOfStream <> True Then
                GetCurrentVersionLocal = Array(objFile.ReadLine,fname)
             End If
@@ -225,7 +225,8 @@ Sub CommandLocal(arg)
         ver=arg(1)
         If ver = "--unset" Then
             ver = ""
-            objFSO.DeleteFile strDelFile, True
+            objfs.DeleteFile strCurrent & "\.rbenv_version", True
+            Exit Sub
         Else
             GetBinDir(ver)
         End If

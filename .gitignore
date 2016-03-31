@@ -13,5 +13,6 @@
 !/libexec/*.vbs
 
 !/tools/
+/tools/DevKit/
 
 !/test/
