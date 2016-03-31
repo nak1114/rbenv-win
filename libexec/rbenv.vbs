@@ -46,7 +46,7 @@ Function GetCurrentVersionLocal(path)
     Do While path <> ""
         fname = path & "\.rbenv_version"
         If objfs.FileExists( fname ) Then
-            Set objFile = objFSO.OpenTextFile(fname)
+            Set objFile = objfs.OpenTextFile(fname)
             If objFile.AtEndOfStream <> True Then
                GetCurrentVersionLocal = Array(objFile.ReadLine,fname)
             End If
