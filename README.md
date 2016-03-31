@@ -52,8 +52,15 @@ The scripts is available as open source under the terms of the [MIT License](htt
 
 ## Development
 
-Not avalable any test case.
-Because I don't know how to test a windows batch file.
+Release test is performed in the following procedure.
+
+    ````
+    > git clone https://github.com/nak1114/rbenv-win.git <your test dir>
+    > cd <your test dir>/test
+    > test.bat
+    ````
+
+This test requires the FireFox.
 
 ## Contributing
 
