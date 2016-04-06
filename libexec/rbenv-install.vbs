@@ -258,7 +258,9 @@ End Sub
 Sub patchDevKit(dev,cur)
      Wscript.echo "patch " & dev(0) & " to " & cur(0)
      writeConfigYML dev,cur
-     objws.Run """" & cur(1) & "\bin\ruby.exe"" " & dev(1) & "\dk.rb install", 0 , true
+     objws.CurrentDirectory = dev(1)
+     objws.Run """" & cur(1) & "\bin\ruby.exe"" dk.rb install", 1 , true
+     objws.CurrentDirectory =strCurrent
 End Sub
 
 Sub installDevKit(cur)
