@@ -15,4 +15,4 @@ echo.
 EXIT /B
 )
 
-echo rbenv 0.0.3-04
+echo rbenv 0.0.4-05

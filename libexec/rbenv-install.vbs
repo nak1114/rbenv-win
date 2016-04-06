@@ -232,7 +232,16 @@ Sub extractDevKit(cur)
     If Not objfs.FolderExists( strDirDevKit ) Then objfs.CreateFolder(strDirDevKit)
     If Not objfs.FolderExists(    cur(1)    ) Then objfs.CreateFolder(cur(1))
 
-    If Not objfs.FileExists(cur(2)) Then download(cur)
+    If Not objfs.FileExists(cur(2)) Then 
+        objws.Run "%comspec% /c rmdir /s /q " & cur(1), 0 , true
+        objfs.CreateFolder(cur(1))
+        If objfs.FileExists(cur(4)) Then
+            objfs.CopyFile cur(4), cur(1)&"\", True
+        Else
+            download(cur)
+        End If
+    End If
+    
     If Not objfs.FileExists(cur(1) & "\dk.rb") Then
         Wscript.echo "extract" & cur(0) & " ..."
         objws.Run """" & cur(2) & """", 1 , true
@@ -249,7 +258,7 @@ End Sub
 Sub patchDevKit(dev,cur)
      Wscript.echo "patch " & dev(0) & " to " & cur(0)
      writeConfigYML dev,cur
-     objws.Run """" & cur(1) & "\bin\ruby.exe"" " & dev(1) & "dk.rb install", 0 , true
+     objws.Run """" & cur(1) & "\bin\ruby.exe"" " & dev(1) & "\dk.rb install", 0 , true
 End Sub
 
 Sub installDevKit(cur)
@@ -258,7 +267,7 @@ Sub installDevKit(cur)
     Dim idx
     For Each list In listDevKit
         If list(0) = cur(4) Then 
-            dev=Array("DevKit_" & list(0), strDirDevKit&"\"&list(0), strDirDevKit&"\"&list(0)&"\"&list(2), list(1)&list(2))
+            dev=Array("DevKit_" & list(0), strDirDevKit&"\"&list(0), strDirDevKit&"\"&list(0)&"\"&list(2), list(1)&list(2),  strDirCache&"\"&list(2))
             extractDevKit dev
             patchDevKit dev,cur
             Exit Sub
