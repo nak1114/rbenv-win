@@ -45,6 +45,12 @@ listDevKit = Array( _
 Dim listEnv
 Dim listEnv_i386
 listEnv = Array( _
+    Array("2.3.1-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.1-i386-mingw32.7z"      ,"i386"),_
+    Array("2.3.1-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.1-x64-mingw32.7z"       ,"x64" ),_
+    Array("2.3.0-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.0-i386-mingw32.7z"      ,"i386"),_
+    Array("2.3.0-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.0-x64-mingw32.7z"       ,"x64" ),_
+    Array("2.2.5-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.5-i386-mingw32.7z"      ,"i386"),_
+    Array("2.2.5-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.5-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.4-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.4-i386-mingw32.7z"      ,"i386"),_
     Array("2.2.4-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.4-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.3-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.3-i386-mingw32.7z"      ,"i386"),_
@@ -122,6 +128,12 @@ listEnv = Array( _
 )
 
 listEnv_i386 = Array( _
+    Array("2.3.1"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.1-i386-mingw32.7z"      ,"i386"),_
+    Array("2.3.1-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.1-x64-mingw32.7z"       ,"x64" ),_
+    Array("2.3.0"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.0-i386-mingw32.7z"      ,"i386"),_
+    Array("2.3.0-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.0-x64-mingw32.7z"       ,"x64" ),_
+    Array("2.2.5"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.5-i386-mingw32.7z"      ,"i386"),_
+    Array("2.2.5-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.5-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.4"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.4-i386-mingw32.7z"      ,"i386"),_
     Array("2.2.4-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.4-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.3"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.3-i386-mingw32.7z"      ,"i386"),_
