@@ -93,7 +93,7 @@ End Function
 
 Function GetCommandList()
     Dim cmdList
-    Set cmdList = CreateObject("scripting.dictionary")'"System.Collections.SortedList"
+    Set cmdList = CreateObject("Scripting.Dictionary")'"System.Collections.SortedList"
 
     Dim re
     Set re = new regexp
@@ -146,7 +146,7 @@ Sub CommandHelp(arg)
     If arg.Count > 1 Then
         Dim list
         Set list=GetCommandList
-        If list.ContainsKey(arg(1)) Then
+        If list.Exists(arg(1)) Then
             ExecCommand(list(arg(1)) & " --help")
         Else
              Wscript.echo "unknown rbenv command '"&arg(1)&"'"
@@ -175,6 +175,42 @@ Sub CommandRehash(arg)
           ofile.Close()
         End If
     Next
+    
+
+    If arg.Count < 2 Then
+     Exit Sub
+    End If
+    If arg(1) <> "bundle" Then
+     Exit Sub
+    End If
+
+    Dim oExec,str,re,mts
+    set oExec = objws.Exec("bundle.bat config")
+    Do While oExec.Status = 0
+        WScript.Sleep 100
+    Loop
+    str = oExec.StdOut.ReadAll
+    
+    set re=new regexp
+    re.multiline=true
+    re.pattern="^bin\r\n.*\((.*?)\)\: ""(.*?)"""
+    set mts=re.execute(str)
+
+    if mts.count > 0 then
+        str= mts(0).submatches(0) & "/../../" & mts(0).submatches(1)
+
+        For Each file In objfs.GetFolder(str).Files
+            Set ofile = objfs.CreateTextFile(strDirShims & "\" & objfs.GetBaseName( file ) & ".bat" )
+            ofile.WriteLine("@echo off")
+            ofile.WriteLine("call bundle show > NUL")
+            ofile.WriteLine("if ERRORLEVEL 1 (")
+            ofile.WriteLine("rbenv exec %~n0 %*")
+            ofile.WriteLine(") else (")
+            ofile.WriteLine("bundle exec %~n0 %*")
+            ofile.WriteLine(")")
+            ofile.Close()
+        Next
+    end if
 End Sub
 
 Sub CommandExecute(arg)
