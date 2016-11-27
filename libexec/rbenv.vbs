@@ -93,7 +93,7 @@ End Function
 
 Function GetCommandList()
     Dim cmdList
-    Set cmdList = CreateObject("scripting.dictionary")'"System.Collections.SortedList"
+    Set cmdList = CreateObject("Scripting.Dictionary")'"System.Collections.SortedList"
 
     Dim re
     Set re = new regexp
@@ -146,7 +146,7 @@ Sub CommandHelp(arg)
     If arg.Count > 1 Then
         Dim list
         Set list=GetCommandList
-        If list.ContainsKey(arg(1)) Then
+        If list.Exists(arg(1)) Then
             ExecCommand(list(arg(1)) & " --help")
         Else
              Wscript.echo "unknown rbenv command '"&arg(1)&"'"
