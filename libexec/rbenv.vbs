@@ -193,14 +193,20 @@ Sub CommandRehash(arg)
     
     set re=new regexp
     re.multiline=true
-    re.pattern="^bin\r\n.*\((.*?)\)\: ""(.*?)"""
+    re.pattern="^path\r\n.*\((.+?)\)\: ""(.+?)"""
     set mts=re.execute(str)
 
     if mts.count > 0 then
         str= mts(0).submatches(0) & "/../../" & mts(0).submatches(1)
 
-        For Each file In objfs.GetFolder(str).Files
-            Set ofile = objfs.CreateTextFile(strDirShims & "\" & objfs.GetBaseName( file ) & ".bat" )
+	    set oExec = objws.Exec("where -R """ & Replace(str,"/","\") &""" *.bat")
+	    Do While oExec.Status = 0
+	        WScript.Sleep 100
+	    Loop
+
+	    Do While Not oExec.StdOut.AtEndOfStream
+            str = oExec.StdOut.ReadLine
+            Set ofile = objfs.CreateTextFile(strDirShims & "\" & objfs.GetBaseName( str ) & ".bat" )
             ofile.WriteLine("@echo off")
             ofile.WriteLine("call bundle show > NUL")
             ofile.WriteLine("if ERRORLEVEL 1 (")
@@ -209,7 +215,7 @@ Sub CommandRehash(arg)
             ofile.WriteLine("bundle exec %~n0 %*")
             ofile.WriteLine(")")
             ofile.Close()
-        Next
+        Loop
     end if
 End Sub
 
