@@ -168,7 +168,7 @@ Sub CommandRehash(arg)
         objfs.DeleteFile file, True
     Next
     For Each file In objfs.GetFolder(GetBinDir(GetCurrentVersion()(0))).Files
-        If objfs.GetExtensionName(file) = "exe" or objfs.GetExtensionName(file) = "bat" Then
+        If objfs.GetExtensionName(file) = "exe" or objfs.GetExtensionName(file) = "bat" or objfs.GetExtensionName(file) = "cmd" Then
           Set ofile = objfs.CreateTextFile(strDirShims & "\" & objfs.GetBaseName( file ) & ".bat" )
           ofile.WriteLine("@echo off")
           ofile.WriteLine("rbenv exec %~n0 %*")
