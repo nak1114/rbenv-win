@@ -216,12 +216,17 @@ listEnv_i386 = Array( _
 
 Function DownloadFile(strUrl,strFile)
     Dim objHttp
+    Dim httpProxy
     Set objHttp = Wscript.CreateObject("Msxml2.ServerXMLHTTP")
     on error resume next
     Call objHttp.Open("GET", strUrl, False )
     if Err.Number <> 0 then
         Wscript.Echo Err.Description
         Wscript.Quit
+    end if
+    httpProxy = objws.ExpandEnvironmentStrings("%http_proxy%")
+    if httpProxy <> "" Then
+    	objHttp.setProxy 2, httpProxy
     end if
     objHttp.Send
 
