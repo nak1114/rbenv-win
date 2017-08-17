@@ -6,9 +6,10 @@ Some commands doesn't implemented, but wouldn't be a problem in basic use.
 ## Usage
 
 Show all implement commands.
+
 ````
-> rbenv commands
-```
+ > rbenv commands
+````
 
 How to use the detailed command, please refer to the [original rbenv](https://github.com/rbenv/rbenv).
 
