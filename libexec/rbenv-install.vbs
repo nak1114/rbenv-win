@@ -51,6 +51,8 @@ listEnv = Array( _
     Array("2.3.1-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.1-x64-mingw32.7z"       ,"x64" ),_
     Array("2.3.0-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.0-i386-mingw32.7z"      ,"i386"),_
     Array("2.3.0-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.0-x64-mingw32.7z"       ,"x64" ),_
+    Array("2.2.6-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.6-i386-mingw32.7z"      ,"i386"),_
+    Array("2.2.6-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.6-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.5-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.5-i386-mingw32.7z"      ,"i386"),_
     Array("2.2.5-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.5-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.4-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.4-i386-mingw32.7z"      ,"i386"),_
@@ -61,6 +63,8 @@ listEnv = Array( _
     Array("2.2.2-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.2-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.1-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.1-i386-mingw32.7z"      ,"i386"),_
     Array("2.2.1-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.1-x64-mingw32.7z"       ,"x64" ),_
+    Array("2.1.9-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.9-i386-mingw32.7z"      ,"i386"),_
+    Array("2.1.9-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.9-x64-mingw32.7z"       ,"x64" ),_
     Array("2.1.8-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.8-i386-mingw32.7z"      ,"i386"),_
     Array("2.1.8-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.8-x64-mingw32.7z"       ,"x64" ),_
     Array("2.1.7-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.7-i386-mingw32.7z"      ,"i386"),_
@@ -136,6 +140,8 @@ listEnv_i386 = Array( _
     Array("2.3.1-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.1-x64-mingw32.7z"       ,"x64" ),_
     Array("2.3.0"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.0-i386-mingw32.7z"      ,"i386"),_
     Array("2.3.0-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.0-x64-mingw32.7z"       ,"x64" ),_
+    Array("2.2.6"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.6-i386-mingw32.7z"      ,"i386"),_
+    Array("2.2.6-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.6-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.5"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.5-i386-mingw32.7z"      ,"i386"),_
     Array("2.2.5-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.5-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.4"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.4-i386-mingw32.7z"      ,"i386"),_
@@ -146,6 +152,8 @@ listEnv_i386 = Array( _
     Array("2.2.2-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.2-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.1"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.1-i386-mingw32.7z"      ,"i386"),_
     Array("2.2.1-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.1-x64-mingw32.7z"       ,"x64" ),_
+    Array("2.1.9"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.9-i386-mingw32.7z"      ,"i386"),_
+    Array("2.1.9-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.9-x64-mingw32.7z"       ,"x64" ),_
     Array("2.1.8"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.8-i386-mingw32.7z"      ,"i386"),_
     Array("2.1.8-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.8-x64-mingw32.7z"       ,"x64" ),_
     Array("2.1.7"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.7-i386-mingw32.7z"      ,"i386"),_
