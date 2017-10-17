@@ -233,7 +233,7 @@ Function DownloadFile(strUrl,strFile)
         Wscript.Quit
     end if
     httpProxy = objws.ExpandEnvironmentStrings("%http_proxy%")
-    if httpProxy <> "" Then
+    if httpProxy <> "" AND httpProxy <> "%http_proxy%" Then
     	objHttp.setProxy 2, httpProxy
     end if
     objHttp.Send
