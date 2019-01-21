@@ -44,7 +44,13 @@ listDevKit = Array( _
 
 Dim listEnv
 Dim listEnv_i386
-listEnv = Array( _
+listEnv = Array(_
+    Array("2.6.0-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.0-1/","rubyinstaller-devkit-2.6.0-1-x86.7z" ,"bundled"),_
+    Array("2.6.0-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.0-1/","rubyinstaller-devkit-2.6.0-1-x64.7z" ,"bundled"),_
+    Array("2.5.3-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.5.3-1/","rubyinstaller-devkit-2.5.3-1-x86.7z" ,"bundled"),_
+    Array("2.5.3-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.5.3-1/","rubyinstaller-devkit-2.5.3-1-x64.7z" ,"bundled"),_
+    Array("2.4.5-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.4.5-1/","rubyinstaller-devkit-2.4.5-1-x86.7z" ,"bundled"),_
+    Array("2.4.5-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.4.5-1/","rubyinstaller-devkit-2.4.5-1-x64.7z" ,"bundled"),_
     Array("2.3.3-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.3-i386-mingw32.7z"      ,"i386"),_
     Array("2.3.3-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.3-x64-mingw32.7z"       ,"x64" ),_
     Array("2.3.1-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.1-i386-mingw32.7z"      ,"i386"),_
@@ -134,6 +140,12 @@ listEnv = Array( _
 )
 
 listEnv_i386 = Array( _
+    Array("2.6.0"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.0-1/","rubyinstaller-2.6.0-1-x86.7z" ,"bundled"),_
+    Array("2.6.0-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.0-1/","rubyinstaller-2.6.0-1-x64.7z" ,"bundled"),_
+    Array("2.5.3"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.5.3-1/","rubyinstaller-2.5.3-1-x86.7z" ,"bundled"),_
+    Array("2.5.3-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.5.3-1/","rubyinstaller-2.5.3-1-x64.7z" ,"bundled"),_
+    Array("2.4.5"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.4.5-1/","rubyinstaller-2.4.5-1-x86.7z" ,"bundled"),_
+    Array("2.4.5-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.4.5-1/","rubyinstaller-2.4.5-1-x64.7z" ,"bundled"),_
     Array("2.3.3"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.3-i386-mingw32.7z"      ,"i386"),_
     Array("2.3.3-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.3-x64-mingw32.7z"       ,"x64" ),_
     Array("2.3.1"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.1-i386-mingw32.7z"      ,"i386"),_
@@ -296,14 +308,18 @@ Sub installDevKit(cur)
     Dim list
     Dim dev
     Dim idx
-    For Each list In listDevKit
-        If list(0) = cur(4) Then 
-            dev=Array("DevKit_" & list(0), strDirDevKit&"\"&list(0), strDirDevKit&"\"&list(0)&"\"&list(2), list(1)&list(2),  strDirCache&"\"&list(2))
-            extractDevKit dev
-            patchDevKit dev,cur
-            Exit Sub
-        End If
-    Next
+    If cur(4) = "bundled" Then
+        objws.Run """" & cur(1) & "\bin\ridk.cmd"" install", 1 , true
+    Else
+        For Each list In listDevKit
+            If list(0) = cur(4) Then
+                dev=Array("DevKit_" & list(0), strDirDevKit&"\"&list(0), strDirDevKit&"\"&list(0)&"\"&list(2), list(1)&list(2),  strDirCache&"\"&list(2))
+                extractDevKit dev
+                patchDevKit dev,cur
+                Exit Sub
+            End If
+        Next
+    End If
 End Sub
 
 Sub clear(cur)
