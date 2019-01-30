@@ -44,13 +44,21 @@ listDevKit = Array( _
 
 Dim listEnv
 Dim listEnv_i386
-listEnv = Array( _
+listEnv = Array(_
+    Array("2.6.0-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.0-1/","rubyinstaller-devkit-2.6.0-1-x86.7z" ,"bundled"),_
+    Array("2.6.0-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.0-1/","rubyinstaller-devkit-2.6.0-1-x64.7z" ,"bundled"),_
+    Array("2.5.3-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.5.3-1/","rubyinstaller-devkit-2.5.3-1-x86.7z" ,"bundled"),_
+    Array("2.5.3-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.5.3-1/","rubyinstaller-devkit-2.5.3-1-x64.7z" ,"bundled"),_
+    Array("2.4.5-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.4.5-1/","rubyinstaller-devkit-2.4.5-1-x86.7z" ,"bundled"),_
+    Array("2.4.5-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.4.5-1/","rubyinstaller-devkit-2.4.5-1-x64.7z" ,"bundled"),_
     Array("2.3.3-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.3-i386-mingw32.7z"      ,"i386"),_
     Array("2.3.3-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.3-x64-mingw32.7z"       ,"x64" ),_
     Array("2.3.1-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.1-i386-mingw32.7z"      ,"i386"),_
     Array("2.3.1-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.1-x64-mingw32.7z"       ,"x64" ),_
     Array("2.3.0-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.0-i386-mingw32.7z"      ,"i386"),_
     Array("2.3.0-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.0-x64-mingw32.7z"       ,"x64" ),_
+    Array("2.2.6-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.6-i386-mingw32.7z"      ,"i386"),_
+    Array("2.2.6-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.6-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.5-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.5-i386-mingw32.7z"      ,"i386"),_
     Array("2.2.5-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.5-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.4-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.4-i386-mingw32.7z"      ,"i386"),_
@@ -61,6 +69,8 @@ listEnv = Array( _
     Array("2.2.2-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.2-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.1-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.1-i386-mingw32.7z"      ,"i386"),_
     Array("2.2.1-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.1-x64-mingw32.7z"       ,"x64" ),_
+    Array("2.1.9-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.9-i386-mingw32.7z"      ,"i386"),_
+    Array("2.1.9-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.9-x64-mingw32.7z"       ,"x64" ),_
     Array("2.1.8-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.8-i386-mingw32.7z"      ,"i386"),_
     Array("2.1.8-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.8-x64-mingw32.7z"       ,"x64" ),_
     Array("2.1.7-i386"       ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.7-i386-mingw32.7z"      ,"i386"),_
@@ -130,12 +140,20 @@ listEnv = Array( _
 )
 
 listEnv_i386 = Array( _
+    Array("2.6.0"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.0-1/","rubyinstaller-2.6.0-1-x86.7z" ,"bundled"),_
+    Array("2.6.0-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.0-1/","rubyinstaller-2.6.0-1-x64.7z" ,"bundled"),_
+    Array("2.5.3"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.5.3-1/","rubyinstaller-2.5.3-1-x86.7z" ,"bundled"),_
+    Array("2.5.3-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.5.3-1/","rubyinstaller-2.5.3-1-x64.7z" ,"bundled"),_
+    Array("2.4.5"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.4.5-1/","rubyinstaller-2.4.5-1-x86.7z" ,"bundled"),_
+    Array("2.4.5-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.4.5-1/","rubyinstaller-2.4.5-1-x64.7z" ,"bundled"),_
     Array("2.3.3"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.3-i386-mingw32.7z"      ,"i386"),_
     Array("2.3.3-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.3-x64-mingw32.7z"       ,"x64" ),_
     Array("2.3.1"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.1-i386-mingw32.7z"      ,"i386"),_
     Array("2.3.1-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.1-x64-mingw32.7z"       ,"x64" ),_
     Array("2.3.0"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.0-i386-mingw32.7z"      ,"i386"),_
     Array("2.3.0-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.3.0-x64-mingw32.7z"       ,"x64" ),_
+    Array("2.2.6"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.6-i386-mingw32.7z"      ,"i386"),_
+    Array("2.2.6-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.6-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.5"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.5-i386-mingw32.7z"      ,"i386"),_
     Array("2.2.5-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.5-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.4"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.4-i386-mingw32.7z"      ,"i386"),_
@@ -146,6 +164,8 @@ listEnv_i386 = Array( _
     Array("2.2.2-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.2-x64-mingw32.7z"       ,"x64" ),_
     Array("2.2.1"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.1-i386-mingw32.7z"      ,"i386"),_
     Array("2.2.1-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.2.1-x64-mingw32.7z"       ,"x64" ),_
+    Array("2.1.9"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.9-i386-mingw32.7z"      ,"i386"),_
+    Array("2.1.9-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.9-x64-mingw32.7z"       ,"x64" ),_
     Array("2.1.8"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.8-i386-mingw32.7z"      ,"i386"),_
     Array("2.1.8-x64"        ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.8-x64-mingw32.7z"       ,"x64" ),_
     Array("2.1.7"            ,"http://dl.bintray.com/oneclick/rubyinstaller/","ruby-2.1.7-i386-mingw32.7z"      ,"i386"),_
@@ -216,12 +236,17 @@ listEnv_i386 = Array( _
 
 Function DownloadFile(strUrl,strFile)
     Dim objHttp
+    Dim httpProxy
     Set objHttp = Wscript.CreateObject("Msxml2.ServerXMLHTTP")
     on error resume next
     Call objHttp.Open("GET", strUrl, False )
     if Err.Number <> 0 then
         Wscript.Echo Err.Description
         Wscript.Quit
+    end if
+    httpProxy = objws.ExpandEnvironmentStrings("%http_proxy%")
+    if httpProxy <> "" AND httpProxy <> "%http_proxy%" Then
+    	objHttp.setProxy 2, httpProxy
     end if
     objHttp.Send
 
@@ -283,14 +308,18 @@ Sub installDevKit(cur)
     Dim list
     Dim dev
     Dim idx
-    For Each list In listDevKit
-        If list(0) = cur(4) Then 
-            dev=Array("DevKit_" & list(0), strDirDevKit&"\"&list(0), strDirDevKit&"\"&list(0)&"\"&list(2), list(1)&list(2),  strDirCache&"\"&list(2))
-            extractDevKit dev
-            patchDevKit dev,cur
-            Exit Sub
-        End If
-    Next
+    If cur(4) = "bundled" Then
+        objws.Run """" & cur(1) & "\bin\ridk.cmd"" install", 1 , true
+    Else
+        For Each list In listDevKit
+            If list(0) = cur(4) Then
+                dev=Array("DevKit_" & list(0), strDirDevKit&"\"&list(0), strDirDevKit&"\"&list(0)&"\"&list(2), list(1)&list(2),  strDirCache&"\"&list(2))
+                extractDevKit dev
+                patchDevKit dev,cur
+                Exit Sub
+            End If
+        Next
+    End If
 End Sub
 
 Sub clear(cur)
@@ -323,6 +352,58 @@ Sub extract(cur)
 
 End Sub
 
+Function GetCurrentVersionGlobal()
+    GetCurrentVersionGlobal = Null
+
+    Dim fname
+    Dim objFile
+    fname = strRbenvHome & "\version"
+    If objfs.FileExists( fname ) Then
+        Set objFile = objfs.OpenTextFile(fname)
+        If objFile.AtEndOfStream <> True Then
+           GetCurrentVersionGlobal = Array(objFile.ReadLine,fname)
+        End If
+        objFile.Close
+    End If
+End Function
+
+Function GetCurrentVersionLocal(path)
+    GetCurrentVersionLocal = Null
+
+    Dim fname
+    Dim objFile
+    Do While path <> ""
+        fname = path & "\.rbenv_version"
+        If objfs.FileExists( fname ) Then
+            Set objFile = objfs.OpenTextFile(fname)
+            If objFile.AtEndOfStream <> True Then
+               GetCurrentVersionLocal = Array(objFile.ReadLine,fname)
+            End If
+            objFile.Close
+            Exit Function
+        End If
+        path = objfs.getParentFolderName(path)
+    Loop
+End Function
+
+Function GetCurrentVersionShell()
+    GetCurrentVersionShell = Null
+
+    Dim str
+    str=objws.ExpandEnvironmentStrings("%RBENV_VERSION%")
+    If str <> "%RBENV_VERSION%" Then
+        GetCurrentVersionShell = Array(str,"%RBENV_VERSION%")
+    End If
+End Function
+
+Function GetCurrentVersionNoError()
+    Dim str
+    str=GetCurrentVersionShell
+    If IsNull(str) Then str = GetCurrentVersionLocal(strCurrent)
+    If IsNull(str) Then str = GetCurrentVersionGlobal
+    GetCurrentVersionNoError = str
+End Function
+
 Sub main(arg)
     If arg.Count = 0 Then ShowHelp
 
@@ -351,6 +432,10 @@ Sub main(arg)
                Exit For
         End Select
     Next
+
+    If version = "" Then
+        version=GetCurrentVersionNoError()(0)
+    End If
     
     Dim list
     Dim cur
