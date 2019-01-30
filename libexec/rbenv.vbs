@@ -10,11 +10,13 @@ Dim strRbenvHome
 Dim strDirCache
 Dim strDirVers
 Dim strDirLibs
+Dim strVerFile
 strCurrent   = objfs.GetAbsolutePathName(".")
 strRbenvHome = objfs.getParentFolderName(objfs.getParentFolderName(WScript.ScriptFullName))
 strDirCache  = strRbenvHome & "\install_cache"
 strDirVers   = strRbenvHome & "\versions"
 strDirLibs   = strRbenvHome & "\libexec"
+strVerFile   = "\.ruby_version"
 
 Function IsVersion(version)
     Dim re
@@ -44,7 +46,7 @@ Function GetCurrentVersionLocal(path)
     Dim fname
     Dim objFile
     Do While path <> ""
-        fname = path & "\.rbenv_version"
+        fname = path & strVerFile
         If objfs.FileExists( fname ) Then
             Set objFile = objfs.OpenTextFile(fname)
             If objFile.AtEndOfStream <> True Then
@@ -279,13 +281,13 @@ Sub CommandLocal(arg)
         ver=arg(1)
         If ver = "--unset" Then
             ver = ""
-            objfs.DeleteFile strCurrent & "\.rbenv_version", True
+            objfs.DeleteFile strCurrent & strVerFile, True
             Exit Sub
         Else
             GetBinDir(ver)
         End If
         Dim ofile
-        Set ofile = objfs.CreateTextFile( strCurrent & "\.rbenv_version" , True )
+        Set ofile = objfs.CreateTextFile( strCurrent & strVerFile , True )
         ofile.WriteLine(ver)
         ofile.Close()
     End If
