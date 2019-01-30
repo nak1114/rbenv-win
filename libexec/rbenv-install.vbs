@@ -10,11 +10,13 @@ Dim strRbenvHome
 Dim strDirCache
 Dim strDirVers
 Dim strDirLibs
+Dim strVerFile
 strCurrent   = objfs.GetAbsolutePathName(".")
 strRbenvHome = objfs.getParentFolderName(objfs.getParentFolderName(WScript.ScriptFullName))
 strDirCache  = strRbenvHome & "\install_cache"
 strDirVers   = strRbenvHome & "\versions"
 strDirLibs   = strRbenvHome & "\libexec"
+strVerFile   = "\.ruby_version"
 
 
 Dim tool7z
@@ -373,7 +375,7 @@ Function GetCurrentVersionLocal(path)
     Dim fname
     Dim objFile
     Do While path <> ""
-        fname = path & "\.rbenv_version"
+        fname = path & strVerFile
         If objfs.FileExists( fname ) Then
             Set objFile = objfs.OpenTextFile(fname)
             If objFile.AtEndOfStream <> True Then
