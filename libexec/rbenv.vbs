@@ -173,6 +173,10 @@ Sub CommandRehash(arg)
           ofile.WriteLine("@echo off")
           ofile.WriteLine("rbenv exec %~n0 %*")
           ofile.Close()
+          Set ofile = objfs.CreateTextFile(strDirShims & "\" & objfs.GetBaseName( file ) )
+          ofile.WriteLine("#!/bin/sh")
+          ofile.WriteLine("rbenv exec $(basename ""$0"") $*")
+          ofile.Close()
         End If
     Next
     
@@ -214,6 +218,14 @@ Sub CommandRehash(arg)
             ofile.WriteLine(") else (")
             ofile.WriteLine("bundle exec %~n0 %*")
             ofile.WriteLine(")")
+            ofile.Close()
+            Set ofile = objfs.CreateTextFile(strDirShims & "\" & objfs.GetBaseName( str ) )
+            ofile.WriteLine("#!/bin/sh")
+            ofile.WriteLine("if bundle show >/dev/null; then")
+            ofile.WriteLine("bundle exec $(basename ""$0"") $*")
+            ofile.WriteLine("else")
+            ofile.WriteLine("rbenv exec $(basename ""$0"") $*")
+            ofile.WriteLine("fi")
             ofile.Close()
         Loop
     end if
