@@ -349,7 +349,7 @@ Sub extract(cur)
     objfs.MoveFolder strDirCache&"\"&objfs.GetBaseName(cur(2)) , cur(1)
 
     installDevKit(cur)
-
+    objws.Run "rbenv rehash " & cur(0), 0, true
     Wscript.echo "comlete! " & cur(0)
 
 End Sub
