@@ -47,6 +47,12 @@ listDevKit = Array( _
 Dim listEnv
 Dim listEnv_i386
 listEnv = Array(_
+    Array("2.6.3-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.3-1/","rubyinstaller-devkit-2.6.3-1-x86.7z" ,"bundled"),_
+    Array("2.6.3-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.3-1/","rubyinstaller-devkit-2.6.3-1-x64.7z" ,"bundled"),_
+    Array("2.6.2-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.2-1/","rubyinstaller-devkit-2.6.2-1-x86.7z" ,"bundled"),_
+    Array("2.6.2-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.2-1/","rubyinstaller-devkit-2.6.2-1-x64.7z" ,"bundled"),_
+    Array("2.6.1-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.1-1/","rubyinstaller-devkit-2.6.1-1-x86.7z" ,"bundled"),_
+    Array("2.6.1-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.1-1/","rubyinstaller-devkit-2.6.1-1-x64.7z" ,"bundled"),_
     Array("2.6.0-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.0-1/","rubyinstaller-devkit-2.6.0-1-x86.7z" ,"bundled"),_
     Array("2.6.0-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.0-1/","rubyinstaller-devkit-2.6.0-1-x64.7z" ,"bundled"),_
     Array("2.5.3-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.5.3-1/","rubyinstaller-devkit-2.5.3-1-x86.7z" ,"bundled"),_
@@ -142,6 +148,12 @@ listEnv = Array(_
 )
 
 listEnv_i386 = Array( _
+    Array("2.6.3"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.3-1/","rubyinstaller-2.6.3-1-x86.7z" ,"bundled"),_
+    Array("2.6.3-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.3-1/","rubyinstaller-2.6.3-1-x64.7z" ,"bundled"),_
+    Array("2.6.2"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.2-1/","rubyinstaller-2.6.2-1-x86.7z" ,"bundled"),_
+    Array("2.6.2-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.2-1/","rubyinstaller-2.6.2-1-x64.7z" ,"bundled"),_
+    Array("2.6.1"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.1-1/","rubyinstaller-2.6.1-1-x86.7z" ,"bundled"),_
+    Array("2.6.1-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.1-1/","rubyinstaller-2.6.1-1-x64.7z" ,"bundled"),_
     Array("2.6.0"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.0-1/","rubyinstaller-2.6.0-1-x86.7z" ,"bundled"),_
     Array("2.6.0-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.0-1/","rubyinstaller-2.6.0-1-x64.7z" ,"bundled"),_
     Array("2.5.3"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.5.3-1/","rubyinstaller-2.5.3-1-x86.7z" ,"bundled"),_
@@ -349,7 +361,7 @@ Sub extract(cur)
     objfs.MoveFolder strDirCache&"\"&objfs.GetBaseName(cur(2)) , cur(1)
 
     installDevKit(cur)
-
+    objws.Run "rbenv rehash " & cur(0), 0, true
     Wscript.echo "comlete! " & cur(0)
 
 End Sub
@@ -436,7 +448,9 @@ Sub main(arg)
     Next
 
     If version = "" Then
-        version=GetCurrentVersionNoError()(0)
+        Dim ary
+        ary=GetCurrentVersionNoError()
+        If Not IsNull(ary) Then version=ary(0)
     End If
     
     Dim list
