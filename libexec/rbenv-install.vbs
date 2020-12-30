@@ -292,7 +292,7 @@ Sub extractDevKit(cur)
     If Not objfs.FolderExists(    cur(1)    ) Then objfs.CreateFolder(cur(1))
 
     If Not objfs.FileExists(cur(2)) Then 
-        objws.Run "%comspec% /c rmdir /s /q " & cur(1), 0 , true
+        objws.Run "%comspec% /c rmdir /s /q " & """" & cur(1) & """", 0 , true
         objfs.CreateFolder(cur(1))
         If objfs.FileExists(cur(4)) Then
             objfs.CopyFile cur(4), cur(1)&"\", True
