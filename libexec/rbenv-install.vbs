@@ -150,16 +150,28 @@ listEnv = Array(_
 )
 
 listEnv_i386 = Array( _
+    Array("3.0.1"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.0.1-1/","rubyinstaller-3.0.1-1-x86.7z" ,"bundled"),_
+    Array("3.0.1-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.0.1-1/","rubyinstaller-3.0.1-1-x64.7z" ,"bundled"),_
+    Array("3.0.0"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.0.0-1/","rubyinstaller-3.0.0-1-x86.7z" ,"bundled"),_
+    Array("3.0.0-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.0.0-1/","rubyinstaller-3.0.0-1-x64.7z" ,"bundled"),_
+    Array("2.7.3"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.3-1/","rubyinstaller-2.7.3-1-x86.7z" ,"bundled"),_
+    Array("2.7.3-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.3-1/","rubyinstaller-2.7.3-1-x64.7z" ,"bundled"),_
+    Array("2.7.2"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.2-1/","rubyinstaller-2.7.2-1-x86.7z" ,"bundled"),_
+    Array("2.7.2-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.2-1/","rubyinstaller-2.7.2-1-x64.7z" ,"bundled"),_
     Array("2.7.1"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.1-1/","rubyinstaller-2.7.1-1-x86.7z" ,"bundled"),_
     Array("2.7.1-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.1-1/","rubyinstaller-2.7.1-1-x64.7z" ,"bundled"),_
     Array("2.7.0"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.0-1/","rubyinstaller-2.7.0-1-x86.7z" ,"bundled"),_
     Array("2.7.0-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.0-1/","rubyinstaller-2.7.0-1-x64.7z" ,"bundled"),_
+    Array("2.6.7"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.7-1/","rubyinstaller-2.6.7-1-x86.7z" ,"bundled"),_
+    Array("2.6.7-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.7-1/","rubyinstaller-2.6.7-1-x64.7z" ,"bundled"),_
     Array("2.6.6"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.6-1/","rubyinstaller-2.6.6-1-x86.7z" ,"bundled"),_
     Array("2.6.6-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.6-1/","rubyinstaller-2.6.6-1-x64.7z" ,"bundled"),_
     Array("2.6.4"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.4-1/","rubyinstaller-2.6.4-1-x86.7z" ,"bundled"),_
     Array("2.6.4-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.4-1/","rubyinstaller-2.6.4-1-x64.7z" ,"bundled"),_
     Array("2.6.0"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.0-1/","rubyinstaller-2.6.0-1-x86.7z" ,"bundled"),_
     Array("2.6.0-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.0-1/","rubyinstaller-2.6.0-1-x64.7z" ,"bundled"),_
+    Array("2.5.9"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.5.9-1/","rubyinstaller-2.5.9-1-x86.7z" ,"bundled"),_
+    Array("2.5.9-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.5.9-1/","rubyinstaller-2.5.9-1-x64.7z" ,"bundled"),_
     Array("2.5.3"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.5.3-1/","rubyinstaller-2.5.3-1-x86.7z" ,"bundled"),_
     Array("2.5.3-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.5.3-1/","rubyinstaller-2.5.3-1-x64.7z" ,"bundled"),_
     Array("2.4.5"            ,"https://github.com/oneclick/rubyinstaller2/releases/download/rubyinstaller-2.4.5-1/","rubyinstaller-2.4.5-1-x86.7z" ,"bundled"),_
@@ -291,7 +303,7 @@ Sub extractDevKit(cur)
     If Not objfs.FolderExists( strDirDevKit ) Then objfs.CreateFolder(strDirDevKit)
     If Not objfs.FolderExists(    cur(1)    ) Then objfs.CreateFolder(cur(1))
 
-    If Not objfs.FileExists(cur(2)) Then 
+    If Not objfs.FileExists(cur(2)) Then
         objws.Run "%comspec% /c rmdir /s /q " & cur(1), 0 , true
         objfs.CreateFolder(cur(1))
         If objfs.FileExists(cur(4)) Then
@@ -300,7 +312,7 @@ Sub extractDevKit(cur)
             download(cur)
         End If
     End If
-    
+
     If Not objfs.FileExists(cur(1) & "\dk.rb") Then
         Wscript.echo "extract" & cur(0) & " ..."
         objws.Run """" & cur(2) & """", 1 , true
@@ -341,8 +353,8 @@ Sub installDevKit(cur)
 End Sub
 
 Sub clear(cur)
-    If objfs.FolderExists(cur(1)) Then objfs.DeleteFolder cur(1),True 
-    If objfs.FileExists(  cur(2)) Then objfs.DeleteFile   cur(2),True 
+    If objfs.FolderExists(cur(1)) Then objfs.DeleteFolder cur(1),True
+    If objfs.FileExists(  cur(2)) Then objfs.DeleteFile   cur(2),True
 End Sub
 
 Sub download(cur)
@@ -357,7 +369,7 @@ Sub extract(cur)
     If objfs.FolderExists(cur(1)) Then Exit Sub
 
     If Not objfs.FileExists(cur(2)) Then download(cur)
-    
+
      Wscript.echo "install " & cur(0) & " ..."
 
     objws.CurrentDirectory = strDirCache
@@ -436,7 +448,7 @@ Sub main(arg)
     optList=False
     version=""
 
-    For idx = 0 To arg.Count - 1 
+    For idx = 0 To arg.Count - 1
         Select Case arg(idx)
            Case "--help"          ShowHelp
            Case "-l"              optList=True
@@ -456,7 +468,7 @@ Sub main(arg)
         ary=GetCurrentVersionNoError()
         If Not IsNull(ary) Then version=ary(0)
     End If
-    
+
     Dim list
     Dim cur
     If optList Then
@@ -466,7 +478,7 @@ Sub main(arg)
         Exit Sub
     ElseIf version <> "" Then
         For Each list In listEnv_i386
-            If list(0) = version Then 
+            If list(0) = version Then
                 cur=Array(list(0),strDirVers&"\"&list(0),strDirCache&"\"&list(2),list(1)&list(2),list(3))
                 If optForce Then  clear(cur)
                 extract(cur)
