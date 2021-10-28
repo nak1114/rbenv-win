@@ -366,7 +366,7 @@ Sub extract(cur)
 
     installDevKit(cur)
     objws.Run "rbenv rehash " & cur(0), 0, true
-    Wscript.echo "comlete! " & cur(0)
+    Wscript.echo "complete! " & cur(0)
 
 End Sub
 
