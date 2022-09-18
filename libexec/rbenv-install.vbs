@@ -47,8 +47,10 @@ listDevKit = Array( _
 Dim listEnv
 Dim listEnv_i386
 listEnv = Array(_
-    Array("2.7.1-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.1-1/","rubyinstaller-2.7.1-1-x86.7z" ,"bundled"),_
-    Array("2.7.1-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.1-1/","rubyinstaller-2.7.1-1-x86.7z" ,"bundled"),_
+    Array("3.1.2-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.1.2-1/","rubyinstaller-3.1.2-1-x86.7z" ,"bundled"),_
+    Array("3.1.2-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.1.2-1/","rubyinstaller-3.1.2-1-x64.7z" ,"bundled"),_
+    Array("3.1.0-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.1.0-1/","rubyinstaller-3.1.0-1-x86.7z" ,"bundled"),_
+    Array("3.1.0-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.1.0-1/","rubyinstaller-3.1.0-1-x64.7z" ,"bundled"),_
     Array("2.7.0-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.0-1/","rubyinstaller-2.7.0-1-x86.7z" ,"bundled"),_
     Array("2.7.0-x64"        ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.0-1/","rubyinstaller-2.7.0-1-x86.7z" ,"bundled"),_
     Array("2.6.6-i386"       ,"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.6-1/","rubyinstaller-2.6.6-1-x86.7z" ,"bundled"),_
